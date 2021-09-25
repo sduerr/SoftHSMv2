@@ -63,14 +63,14 @@ target_link_libraries(${PROJECT_NAME}-static ${STATIC_FILES})
 set_target_properties(${PROJECT_NAME}-static
                       PROPERTIES OUTPUT_NAME ${PROJECT_NAME}
                       )
-generate_export_header(${PROJECT_NAME}-static)
+#generate_export_header(${PROJECT_NAME}-static)
 
 ###############################################################################
 # Shared Library Config
 ###############################################################################
 add_library(${PROJECT_NAME} SHARED ${SOURCES})
 target_link_libraries(${PROJECT_NAME} ${STATIC_FILES})
-generate_export_header(${PROJECT_NAME})
+#generate_export_header(${PROJECT_NAME})
 
 ###############################################################################
 # Tests

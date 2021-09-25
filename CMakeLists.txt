@@ -11,7 +11,7 @@ option(ENABLE_ECC "Enable support for ECC" ON)
 option(ENABLE_EDDSA "Enable support for EDDSA" OFF)
 option(ENABLE_GOST "Enable support for GOST" ON)
 option(ENABLE_FIPS "Enable support for FIPS 140-2 mode" OFF)
-option(ENABLE_P11_KIT "Enable p11-kit integration" ON)
+option(ENABLE_P11_KIT "Enable p11-kit integration" OFF)
 option(ENABLE_PEDANTIC "Enable pedantic compile mode" OFF)
 option(ENABLE_STRICT "Enable strict compile mode" ON)
 option(ENABLE_STATIC "Build static libraries" ON)
@@ -88,14 +88,15 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH}
                       )
 
 # Custom Modules
-include(CompilerOptions)
-include(GenerateExportHeader)
+#include(CompilerOptions)
+#include(GenerateExportHeader)
 
 # Enable CTest
 enable_testing()
 
 # config.h include path
-include_directories(${CMAKE_BINARY_DIR})
+include_directories(${CMAKE_CURRENT_SOURCE_DIR})
+include_directories("/usr/include/botan-2")
 
 add_subdirectory(src)
 
